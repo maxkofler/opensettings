@@ -27,7 +27,7 @@ This part of the document specifies a proposal for this configuration language a
 The configuration is represented in a tree form using key-value pairs.
 This allows for unique identification of configuration keys to avoid duplicates.
 
-The keys can contain any character except a `.` (dot).
+The keys can contain any character except `/` (slash).
 They are used to separate trees from each other to allow a dot-syntax-like key access.
 
 The following primitives exist:
@@ -54,8 +54,13 @@ An example of this configuration tree would be the following:
 
 ```
 
-The `org` and `org.some-org` keys are trees that contain nested configurations.
-The `org.some-org.enabled` key is a boolean and the `org.some-org.home` key is a string.
+The `org` and `org/some-org` keys are trees that contain nested configurations.
+The `org/some-org/enabled` key is a boolean and the `org/some-org/home` key is a string.
+
+## Schema
+
+Each program that gets configured has a schema in which it expects its configuration data.
+The schema is built using the primitives and containers to exactly describe the layout of configurations that the program expects.
 
 **Attributes**
 
